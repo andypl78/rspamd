@@ -1,0 +1,13 @@
+[Unit]
+Description=rapid spam filtering system
+After=nss-lookup.target
+
+[Service]
+ExecStart=/usr/bin/rspamd -c /etc/rspamd/rspamd.conf -f
+User=_rspamd
+RuntimeDirectory=rspamd
+RuntimeDirectoryMode=0755
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
